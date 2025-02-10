@@ -11,6 +11,7 @@ world = [
     [block,3,1],
     [block,2,2]
 ]
+_TOOL_ = "block";
 
 document.addEventListener('keydown', function(event) {
     if (event.key === 'F5') {
@@ -39,4 +40,9 @@ document.addEventListener('mousemove', function(event) {
     mousY = Math.round(my/20)*20
     world.forEach(it => world.forEach(it => scren.drawImage(it[0],it[1]*20,it[2]*20)))
     scren.drawImage(cursor,mousX,mousY)
+});
+document.addEventListener('click', function(event) {
+    if (_TOOL_ = "block") {
+        world.push([block,mousX/20,mousY/20])
+    }
 });
