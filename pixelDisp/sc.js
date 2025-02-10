@@ -2,10 +2,14 @@ document.body.style.cursor = 'none';
 document.body.style.overflow = 'hidden';
 cursor = new Image(20,20)
 cursor.src = "img/tst.png"
+block = new Image(20,20)
+block.src = "img/block.png"
 
 world = [
-    ["def",10,10],
-    ["def",10,10]
+    [block,0,0],
+    [block,1,1],
+    [block,3,1],
+    [block,2,2]
 ]
 
 document.addEventListener('keydown', function(event) {
@@ -33,5 +37,6 @@ document.addEventListener('mousemove', function(event) {
     my = event.clientY;
     mousX = Math.round(mx/20)*20
     mousY = Math.round(my/20)*20
+    world.forEach(it => world.forEach(it => scren.drawImage(it[0],it[1]*20,it[2]*20)))
     scren.drawImage(cursor,mousX,mousY)
 });
